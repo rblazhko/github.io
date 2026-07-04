@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renata Blazhko — Technical Product Manager, Payments</title>
+<meta name="description" content="Renata Blazhko — Product & Payments Analyst. PSP integrations, fraud & AR optimization, AI-native builder.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A1930;
+    --bg-alt:#0F2340;
+    --surface:#122A4D;
+    --line: rgba(234,240,247,0.10);
+    --line-strong: rgba(234,240,247,0.18);
+    --text:#EAF0F7;
+    --text-dim:#93A6C2;
+    --text-faint:#5D7290;
+    --accent:#3ECF8E;
+    --accent-2:#F2B84B;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sans: 'Inter', system-ui, sans-serif;
+    --display: 'Space Grotesk', system-ui, sans-serif;
+    --maxw: 880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  ::selection{background:var(--accent); color:#08150F;}
+
+  /* ---------- Ticker ---------- */
+  .ticker-wrap{
+    background:#081527;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:10px 0;
+  }
+  .ticker{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.02em;
+    color:var(--accent);
+    animation: scroll-left 32s linear infinite;
+    padding-left:100%;
+  }
+  .ticker span{ color:var(--text-dim); }
+  .ticker b{ color:var(--accent-2); font-weight:600; }
+  @keyframes scroll-left{
+    0%{ transform:translateX(0); }
+    100%{ transform:translateX(-100%); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ticker{ animation:none; padding-left:0; }
+  }
+
+  /* ---------- Layout ---------- */
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+  header.hero{ padding:56px 0 32px; border-bottom:1px solid var(--line); }
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.14em;
+    color:var(--text-faint); text-transform:uppercase; margin:0 0 14px;
+  }
+  h1{
+    font-family:var(--display); font-size:clamp(32px,5vw,46px);
+    font-weight:600; margin:0 0 6px; letter-spacing:-0.01em;
+  }
+  .role{
+    font-family:var(--display); font-size:19px; color:var(--accent);
+    margin:0 0 18px; font-weight:500;
+  }
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:6px 18px; font-family:var(--mono);
+    font-size:13px; color:var(--text-dim);
+  }
+  .contact-row a{ color:var(--text-dim); text-decoration:none; border-bottom:1px dotted var(--text-faint); }
+  .contact-row a:hover{ color:var(--accent); border-color:var(--accent); }
+
+  /* ---------- Stat strip ---------- */
+  .stats{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    border-bottom:1px solid var(--line);
+  }
+  .stat{
+    padding:22px 20px; border-right:1px solid var(--line);
+  }
+  .stat:last-child{ border-right:none; }
+  .stat .num{ font-family:var(--display); font-size:26px; color:var(--accent); font-weight:600; }
+  .stat .label{ font-family:var(--mono); font-size:11.5px; color:var(--text-dim); margin-top:4px; letter-spacing:0.02em; }
+  @media (max-width:640px){
+    .stats{ grid-template-columns:repeat(2,1fr); }
+    .stat:nth-child(2){ border-right:none; }
+    .stat{ border-bottom:1px solid var(--line); }
+  }
+
+  /* ---------- Section ---------- */
+  section{ padding:44px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  .sec-head{
+    display:flex; align-items:baseline; gap:12px; margin-bottom:22px;
+  }
+  .sec-num{ font-family:var(--mono); color:var(--text-faint); font-size:13px; }
+  h2{
+    font-family:var(--display); font-size:13px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--text); margin:0; font-weight:600;
+  }
+  .profile-text{ font-size:16.5px; color:var(--text-dim); max-width:72ch; }
+  .profile-text b{ color:var(--text); font-weight:600; }
+
+  /* ---------- Skill rows (statement line-items) ---------- */
+  .skill-row{
+    display:flex; gap:24px; padding:14px 0; border-top:1px solid var(--line);
+  }
+  .skill-row:first-child{ border-top:none; }
+  .skill-label{
+    font-family:var(--mono); font-size:12.5px; color:var(--accent-2);
+    min-width:190px; flex-shrink:0; letter-spacing:0.02em; padding-top:2px;
+  }
+  .skill-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .tag{
+    font-family:var(--mono); font-size:12px; color:var(--text-dim);
+    border:1px solid var(--line-strong); border-radius:4px; padding:4px 9px;
+  }
+  @media (max-width:640px){
+    .skill-row{ flex-direction:column; gap:8px; }
+    .skill-label{ min-width:auto; }
+  }
+
+  /* ---------- Experience ---------- */
+  .job{ padding:26px 0; border-top:1px solid var(--line); }
+  .job:first-child{ border-top:none; padding-top:0; }
+  .job-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    flex-wrap:wrap; gap:6px 16px; margin-bottom:4px;
+  }
+  .job-title{ font-family:var(--display); font-size:18px; font-weight:600; }
+  .job-date{ font-family:var(--mono); font-size:12.5px; color:var(--accent); white-space:nowrap; }
+  .job-org{ font-size:14px; color:var(--text-faint); font-style:italic; margin-bottom:14px; }
+  ul.bullets{ margin:0; padding:0; list-style:none; }
+  ul.bullets li{
+    position:relative; padding-left:20px; margin-bottom:9px;
+    font-size:14.5px; color:var(--text-dim);
+  }
+  ul.bullets li::before{
+    content:'▸'; position:absolute; left:0; color:var(--accent); font-size:12px; top:2px;
+  }
+  ul.bullets li b{ color:var(--text); font-weight:600; }
+
+  /* ---------- Side project card ---------- */
+  .card{
+    background:var(--surface); border:1px solid var(--line-strong);
+    border-radius:8px; padding:22px 24px;
+  }
+
+  /* ---------- Footer grid ---------- */
+  .grid3{ display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:32px; }
+  @media (max-width:640px){ .grid3{ grid-template-columns:1fr; gap:24px; } }
+  .grid3 h3{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--text-faint); margin:0 0 12px; font-weight:600;
+  }
+  .grid3 ul{ margin:0; padding:0; list-style:none; }
+  .grid3 li{ font-size:13.5px; color:var(--text-dim); margin-bottom:8px; }
+
+  /* ---------- CTA footer ---------- */
+  footer{ padding:40px 0 60px; }
+  .cta-row{ display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-bottom:20px; }
+  .btn{
+    font-family:var(--mono); font-size:13px; text-decoration:none;
+    padding:11px 20px; border-radius:5px; display:inline-block;
+    border:1px solid var(--line-strong);
+  }
+  .btn-primary{ background:var(--accent); color:#08150F; border-color:var(--accent); font-weight:600; }
+  .btn-primary:hover{ opacity:0.88; }
+  .btn-ghost{ color:var(--text-dim); }
+  .btn-ghost:hover{ color:var(--text); border-color:var(--text-faint); }
+  .wink{ font-family:var(--mono); font-size:12px; color:var(--text-faint); }
+  .wink b{ color:var(--accent-2); }
+</style>
+</head>
+<body>
+
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker">
+    PSP_INTEGRATION_STREAM <span>···</span> <b>20+/MO SHIPPED</b> &nbsp;&nbsp;//&nbsp;&nbsp;
+    FRAUD_SLA_VIP <span>···</span> <b>−70% RESPONSE TIME</b> &nbsp;&nbsp;//&nbsp;&nbsp;
+    FRAUD_SLA_MASS <span>···</span> <b>−33% RESPONSE TIME</b> &nbsp;&nbsp;//&nbsp;&nbsp;
+    CHECKOUT_AB_TEST <span>···</span> <b>+10% CONVERSION / AR</b> &nbsp;&nbsp;//&nbsp;&nbsp;
+    PROCESSING_COST <span>···</span> <b>−15%</b> &nbsp;&nbsp;//&nbsp;&nbsp;
+    AI_STACK <span>···</span> <b>CLAUDE CODE + CURSOR</b> &nbsp;&nbsp;//&nbsp;&nbsp;
+    UPTIME_IN_FINTECH <span>···</span> <b>7+ YEARS</b> &nbsp;&nbsp;//&nbsp;&nbsp;
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Product & Payments Analyst</p>
+    <h1>Renata Blazhko</h1>
+    <p class="role">Technical Product Manager — Payments</p>
+    <div class="contact-row">
+      <span>Almaty, Kazakhstan · open to relocation</span>
+      <a href="mailto:renatablazhko@gmail.com">renatablazhko@gmail.com</a>
+      <a href="https://t.me/RBlazhko">t.me/RBlazhko</a>
+      <a href="https://github.com/rblazhko">github.com/rblazhko</a>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="num">7+</div><div class="label">YEARS IN FINTECH ANALYTICS</div></div>
+    <div class="stat"><div class="num">20+/mo</div><div class="label">PSP INTEGRATIONS SHIPPED</div></div>
+    <div class="stat"><div class="num">70%/33%</div><div class="label">FASTER FRAUD RESPONSE (VIP/MASS)</div></div>
+    <div class="stat"><div class="num">+10% / −15%</div><div class="label">CONVERSION / PROCESSING COST</div></div>
+  </div>
+
+  <section id="profile">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Profile</h2></div>
+    <p class="profile-text">
+      <b>Product & Payments Analyst with 7+ years</b> in high-risk fintech and iGaming-adjacent analytics.
+      Currently own end-to-end <b>API-based PSP integrations</b> (20+/month, including local payment methods
+      such as e-wallets and transfers) across 25+ countries for a mobile B2C platform with millions of active
+      users, and led a fraud-process redesign that lifted <b>authorization rate (AR)</b> and cut incident-response
+      time by up to 70%. Runs growth experiments end-to-end — A/B tests on checkout and bonus flows delivered
+      +10% conversion/AR and −15% processing costs. <b>AI-native by habit</b>, not just by résumé line: builds
+      and ships real products solo using Claude Code, Cursor, and multi-LLM stacks — including a self-built
+      wellbeing bot with 1,000+ users. Comfortable owning ambiguous, operational problems without waiting on
+      long approval chains.
+    </p>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Core Skills</h2></div>
+
+    <div class="skill-row">
+      <div class="skill-label">PAYMENTS & FRAUD</div>
+      <div class="skill-tags">
+        <span class="tag">API-based PSP integrations</span>
+        <span class="tag">25+ countries incl. local methods</span>
+        <span class="tag">AR optimization</span>
+        <span class="tag">Fraud SLA design</span>
+        <span class="tag">VIP/mass traffic segmentation</span>
+        <span class="tag">Chargeback & dispute coordination</span>
+        <span class="tag">PSP commission review</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">ANALYTICS & EXPERIMENTATION</div>
+      <div class="skill-tags">
+        <span class="tag">SQL (advanced)</span>
+        <span class="tag">Python (pandas, scikit-learn)</span>
+        <span class="tag">R</span>
+        <span class="tag">A/B & hypothesis testing</span>
+        <span class="tag">Cohort / retention / churn</span>
+        <span class="tag">Risk segmentation</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">BI & TOOLING</div>
+      <div class="skill-tags">
+        <span class="tag">Tableau</span>
+        <span class="tag">Superset</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">ETL pipelines & warehousing</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">AI-NATIVE</div>
+      <div class="skill-tags">
+        <span class="tag">Claude Code</span>
+        <span class="tag">Cursor</span>
+        <span class="tag">GitHub Copilot / VS Code AI</span>
+        <span class="tag">Ships solo without a dev team</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">PRODUCT & LEADERSHIP</div>
+      <div class="skill-tags">
+        <span class="tag">Team leadership (5+ analysts)</span>
+        <span class="tag">Cross-functional collaboration</span>
+        <span class="tag">KPI development</span>
+        <span class="tag">Executive reporting</span>
+        <span class="tag">Customer journey mapping</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Experience</h2></div>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="job-title">Team Lead, Data & Business Analysis</span>
+        <span class="job-date">Dec 2024 — Present</span>
+      </div>
+      <div class="job-org">International High-Risk Fintech Company [NDA] — global online services provider, 25+ countries, millions of monthly transactions</div>
+      <ul class="bullets">
+        <li><b>Payments:</b> Own end-to-end API-based payment integrations across PSPs for a mobile B2C platform with millions of active users, spanning 25+ countries — 20+ integrations shipped per month, including local payment methods (e-wallets, transfers) alongside card rails.</li>
+        <li><b>Fraud & AR:</b> Redesigned the fraud-response workflow from the ground up: split VIP vs. mass traffic into two dedicated monitoring dashboards, each with its own SLA — lifted authorization rate (AR) and cut fraud reaction time by 70% on VIP traffic and 33% on mass traffic within one quarter.</li>
+        <li><b>Disputes:</b> Coordinate chargeback/dispute data collection across the analytics team, compiling evidence packages for compliance and country management within SLA.</li>
+        <li><b>Commissions:</b> Review and validate PSP commission terms as part of ongoing payments monitoring.</li>
+        <li><b>Experiments:</b> Designed and ran A/B tests on checkout flows and bonus/incentive mechanics, measuring impact on conversion, AR, and fraud rate — +10% conversion, −15% processing costs.</li>
+        <li><b>Leadership:</b> Own product analytics (DAU/WAU/MAU, retention, churn, ROI) and lead a team of product, data, and business analysts; partner directly with product, marketing, and IT on roadmap decisions.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="job-title">Manager / Senior Consultant, IT Consulting</span>
+        <span class="job-date">Oct 2023 — Dec 2024</span>
+      </div>
+      <div class="job-org">PwC (PricewaterhouseCoopers) — global "Big Four" professional services firm</div>
+      <ul class="bullets">
+        <li>Led a team of 5 business analysts delivering analytics and strategy projects for clients including Tinkoff, Ozon, X5, and Sber.</li>
+        <li>Built executive dashboards (SQL, Tableau) for loan portfolios, cutting manual reporting effort by 40% and enabling real-time KPI tracking (default rates, approval ratio, NPL).</li>
+        <li>Designed borrower segmentation models for a major bank, increasing approval precision by 12% and improving risk-adjusted portfolio profitability.</li>
+        <li>Introduced a hypothesis-testing playbook that accelerated validation cycles by 25% and reduced failed product experiments.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="job-title">Data Analyst (Risk & Operations)</span>
+        <span class="job-date">Aug 2019 — Oct 2023</span>
+      </div>
+      <div class="job-org">Acronis GmbH — global data-protection & cybersecurity company, 1,800+ employees, 45+ offices</div>
+      <ul class="bullets">
+        <li>Analyzed and optimized global processes focused on risk-sensitive operations and approvals.</li>
+        <li>Automated ETL pipelines and reporting scripts in Python, saving ~30% of manual effort and improving data quality.</li>
+        <li>Introduced monitoring dashboards that reduced approval delays by 20% and increased operational transparency.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="side-project">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Side Project</h2></div>
+    <div class="card">
+      <div class="job-title" style="margin-bottom:4px;">Founder & Solo Builder — AI Wellbeing & Brain-Fitness Telegram Bot</div>
+      <div class="job-org" style="margin-bottom:14px;">Personal project, vibe-coded — no traditional dev team</div>
+      <ul class="bullets">
+        <li>Designed, built, and shipped an English-language Telegram bot combining Claude, GPT-4, and Gemini for playful psychological support — grew to 1,000+ users, deployed on a Dockerized server.</li>
+        <li>Extended the product with AI-generated art therapy: images and color palettes mapped to a user's stated feelings to help with anxiety.</li>
+        <li>Built and iterated entirely with AI coding tools (Claude Code, Cursor) — same operating model as an AI-native product org.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="more">
+    <div class="sec-head"><span class="sec-num">05</span><h2>Education & Languages</h2></div>
+    <div class="grid3">
+      <div>
+        <h3>Education</h3>
+        <ul>
+          <li>MIPT — PhD Candidate, Computer Science, 2023–Present</li>
+          <li>MIPT — MSc, Applied Mathematics & Informatics, 2021–2023</li>
+          <li>MIPT — BSc, Applied Mathematics & Informatics, 2017–2021</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Certificates</h3>
+        <ul>
+          <li>Applied Data Science with Python — Coursera, 2023</li>
+          <li>Machine Learning — Stanford / Coursera, 2022</li>
+          <li>SQL for Data Science — DataCamp, 2022</li>
+          <li>Tableau Desktop Specialist, 2021</li>
+          <li>A/B Testing for Business Analysts — Coursera, 2022</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Languages</h3>
+        <ul>
+          <li>English — Advanced</li>
+          <li>Russian — Native</li>
+          <li>French — Basic</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:renatablazhko@gmail.com">Get in touch</a>
+      <a class="btn btn-ghost" href="resume.pdf">Download PDF</a>
+      <a class="btn btn-ghost" href="https://github.com/rblazhko">GitHub</a>
+      <a class="btn btn-ghost" href="https://t.me/RBlazhko">Telegram</a>
+    </div>
+    <p class="wink">This page is hand-shipped with <b>Claude Code</b> — same stack I'd bring to your payments and checkout experiments.</p>
+  </footer>
+
+</div>
+</body>
+</html>
